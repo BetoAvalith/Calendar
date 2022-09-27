@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useAuthStore } from "../../hooks/useAuthStore";
 import { useFormV } from "../../hooks/useFormV";
 import { InputForm } from "../components/InputForm";
 import { loginFormFields } from "../formFields";
@@ -9,6 +10,8 @@ import { AuthLayout } from "../layout/AuthLayout";
 export const LoginPage = () => {
 
   const [isSubmit, setIsSubmit] = useState(false);
+
+  const { startLogin } = useAuthStore();
 
   const {
     email,
@@ -24,7 +27,8 @@ export const LoginPage = () => {
     event.preventDefault();
     setIsSubmit(true);
     if(!isFormValid) return;
-    console.log(formState);
+    
+    startLogin(formState);
   }
 
   return (
