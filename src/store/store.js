@@ -8,7 +8,7 @@ export const store = configureStore({
         ui: uiSlice.reducer,
         auth: authSlice.reducer,
     },
-    // middleware: (getDefaultMiddleware) => getDefaultMiddleware({
-    //     serializableCheck: false
-    // })
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+        serializableCheck: false
+    })
 })

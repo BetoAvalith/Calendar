@@ -85,7 +85,6 @@ export const CalendarModal = () => {
     const onSubmit = async( event ) => {
         event.preventDefault();
         setFormSubmitted(true);
-
         // Verificamos la diferencia en segundos entre las dos fechas.
         // Esto dara un valor numerico, si el valor es negativo quiere decir que la fecha de inicio es mayor a la fecha del final.
         // Si al momento de realizar submit, solo hay seleccionada una fecha, el resultado es NaN.
@@ -97,16 +96,12 @@ export const CalendarModal = () => {
         }
         
         if ( formValues.title.length <= 0 ) return;
-        
-        console.log(formValues);
-
+       
         // TODO: 
         await startSavingEvent( formValues );
         closeDateModal();
         setFormSubmitted(false);
     }
-
-
 
   return (
     <Modal
